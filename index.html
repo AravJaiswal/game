@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Play Snakes & Ladders and Ludo locally with 2–4 players.">
+  <title>Board Game Party</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-action="home" aria-label="Back to game selection"><span>♟</span> Board Game Party</button>
+    <button id="soundToggle" class="icon-btn" aria-label="Toggle sound">🔊</button>
+  </header>
+
+  <main>
+    <section id="homeView" class="view home-view">
+      <div class="hero">
+        <p class="eyebrow">LOCAL MULTIPLAYER • 2–4 PLAYERS</p>
+        <h1>Pick a board.<br><span>Make your move.</span></h1>
+        <p>Two classic games, one screen, zero setup. Gather your friends and let the dice decide.</p>
+      </div>
+      <div class="game-grid">
+        <button class="game-card snakes-card" data-game="snakes">
+          <div class="card-art" aria-hidden="true"><span class="snake">〰</span><span class="ladder">╫</span><b>100</b></div>
+          <div><small>QUICK & CHAOTIC</small><h2>Snakes & Ladders</h2><p>Climb fast, slide faster. First to square 100 wins.</p><span class="play-link">Play now →</span></div>
+        </button>
+        <button class="game-card ludo-card" data-game="ludo">
+          <div class="card-art ludo-art" aria-hidden="true"><i></i><i></i><i></i><i></i><span>★</span></div>
+          <div><small>TACTICAL CLASSIC</small><h2>Ludo</h2><p>Race every token home before your rivals do.</p><span class="play-link">Play now →</span></div>
+        </button>
+      </div>
+      <p class="footer-note">Made for game nights, study breaks, and friendly rivalries.</p>
+    </section>
+
+    <section id="setupView" class="view setup-view hidden">
+      <button class="back-btn" data-action="home">← Back</button>
+      <div class="setup-card">
+        <p class="eyebrow">NEW GAME</p><h1 id="setupTitle">Choose players</h1>
+        <p id="setupDescription">Add 2 to 4 players, then start the game.</p>
+        <div class="count-picker" role="group" aria-label="Number of players">
+          <button data-count="2" class="active">2</button><button data-count="3">3</button><button data-count="4">4</button>
+        </div>
+        <div id="playerFields" class="player-fields"></div>
+        <button id="startGame" class="primary-btn">Start game →</button>
+      </div>
+    </section>
+
+    <section id="gameView" class="view game-view hidden">
+      <div class="game-heading"><button class="back-btn" data-action="home">← Games</button><div><p class="eyebrow" id="gameEyebrow">GAME</p><h1 id="gameTitle">Game</h1></div><button id="restartBtn" class="secondary-btn">Restart</button></div>
+      <div class="game-layout">
+        <div id="boardWrap" class="board-wrap"></div>
+        <aside class="game-panel">
+          <div id="turnCard" class="turn-card"></div>
+          <button id="rollBtn" class="dice-btn"><span id="diceFace">⚄</span><b>Roll dice</b></button>
+          <p id="gameMessage" class="message" aria-live="polite">Ready to play!</p>
+          <div id="scoreboard" class="scoreboard"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="winnerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="winnerTitle">
+    <div class="modal-card"><div class="trophy">🏆</div><p class="eyebrow">WE HAVE A WINNER</p><h2 id="winnerTitle">Player wins!</h2><p id="winnerText"></p><button id="playAgain" class="primary-btn">Play again</button><button class="text-btn" data-action="home">Choose another game</button></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
