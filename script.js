@@ -30,3 +30,4 @@ function finishTurn(extra){rolling=false;if(!extra)turn=(turn+1)%players.length;
 function win(i){rolling=false;$('#rollBtn').disabled=true;$('#winnerTitle').textContent=`${players[i].name} wins!`;$('#winnerTitle').style.color=players[i].color;$('#winnerText').textContent=selectedGame==='snakes'?'They conquered square 100!':'All four tokens made it home!';$('#winnerModal').classList.remove('hidden');beep(880,.5)}
 
 $$('[data-game]').forEach(b=>b.onclick=()=>openSetup(b.dataset.game));$$('[data-action="home"]').forEach(b=>b.onclick=()=>show('homeView'));$$('[data-count]').forEach(b=>b.onclick=()=>{playerCount=Number(b.dataset.count);$$('[data-count]').forEach(x=>x.classList.toggle('active',x===b));renderPlayerFields()});$('#startGame').onclick=startGame;$('#rollBtn').onclick=rollDice;$('#restartBtn').onclick=startGame;$('#playAgain').onclick=startGame;$('#soundToggle').onclick=()=>{soundOn=!soundOn;$('#soundToggle').textContent=soundOn?'🔊':'🔇'};
+.....
